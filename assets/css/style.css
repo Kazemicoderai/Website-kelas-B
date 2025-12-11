@@ -1,0 +1,586 @@
+/* === GLOBAL STYLE === */
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(180deg, #f5f6fa, #e2e8f0);
+  color: #0f172a;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  text-decoration: none;
+  color: purple;
+}
+
+/* Efek transisi global agar halus */
+* {
+  transition: background 0.4s ease, color 0.4s ease, box-shadow 0.4s ease, border 0.4s ease;
+}
+
+main {
+  flex: 1; /* Dorong footer ke bawah */
+}
+
+/* === HEADER (MODERN & MENAWAN) === */
+header {
+  background: linear-gradient(90deg, #0f172a, #102a43);
+  color: white;
+  box-shadow: 0 6px 18px rgba(0, 255, 255, 0.15);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid rgba(0, 255, 255, 0.15);
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 50px;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-container img {
+  width: 55px;
+  height: 55px;
+  border-radius: 14px;
+  object-fit: cover;
+  box-shadow: 0 0 15px rgba(0,255,255,0.5);
+  transition: 0.3s;
+  background: rgba(0,255,255,0.1);
+  padding: 4px;
+}
+
+.logo-container img:hover {
+  transform: rotate(-5deg) scale(1.1);
+  box-shadow: 0 0 20px cyan;
+}
+
+.logo-container h1 {
+  font-size: 22px;
+  background: linear-gradient(90deg, cyan, white);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 1px;
+  transition: 0.3s;
+}
+
+.logo-container h1:hover {
+  transform: scale(1.05);
+}
+
+nav {
+  display: flex;
+  gap: 25px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+nav a {
+  text-decoration: none;
+  color: cyan;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  padding: 6px 0;
+  border-bottom: 2px solid transparent;
+  position: relative;
+  transition: 0.3s;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  left: 50%;
+  bottom: -4px;
+  background: cyan;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+nav a:hover::after,
+nav a.active::after {
+  width: 100%;
+}
+
+nav a:hover {
+  color: white;
+}
+
+/* Tombol Dark Mode */
+.toggle-theme {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  color: cyan;
+  transition: 0.3s;
+  margin-left: 10px;
+}
+
+.toggle-theme:hover {
+  transform: scale(1.15);
+  text-shadow: 0 0 10px cyan;
+}
+
+/* === HERO SECTION (INDEX) === */
+.hero {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+.hero img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: brightness(0.9);
+  transition: transform 1.5s ease, filter 0.8s ease;
+}
+
+.hero img:hover {
+  transform: scale(1.05);
+  filter: brightness(1);
+}
+
+.hero .overlay {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: white;
+  background: rgba(0,0,0,0.5);
+  padding: 18px 30px;
+  border-radius: 12px;
+  animation: fadeUp 1.2s ease-in-out;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+  backdrop-filter: blur(3px);
+}
+
+/* === CONTENT === */
+.content {
+  padding: 60px 8%;
+  text-align: center;
+}
+
+.content h2 {
+  font-size: 28px;
+  margin-bottom: 35px;
+  color: #0f172a;
+  position: relative;
+}
+
+.content h2::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 3px;
+  background: cyan;
+  margin: 10px auto;
+  border-radius: 3px;
+}
+
+/* === MEMBER PAGE === */
+.content {
+    text-align: center;
+    padding: 60px 20px;
+    animation: fadeUp 0.8s ease-in-out;
+}
+
+.content h2 {
+    font-size: 30px;
+    color: #0f172a;
+    margin-bottom: 40px;
+    text-shadow: 0 0 10px rgba(0,255,255,0.3);
+}
+
+.member-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    padding: 0 20px;
+}
+
+.member-card {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: transform 0.4s ease, box-shadow 0.4s ease, filter 0.4s ease;
+    padding-bottom: 15px;
+    animation: fadeUp 0.8s ease forwards;
+}
+
+.member-card:hover {
+    transform: translateY(-6px) scale(1.03);
+    box-shadow: 0 8px 20px rgba(0,255,255,0.3);
+    filter: brightness(1.05);
+}
+
+.member-card img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    border-radius: 15px 15px 0 0;
+    transition: transform 0.4s ease, filter 0.4s ease;
+    filter: brightness(0.95) contrast(1.1);
+}
+
+.member-card img:hover {
+    transform: scale(1.05);
+    filter: brightness(1.1) contrast(1.2) saturate(1.1);
+}
+
+.member-card h3 {
+    color: #0f172a;
+    margin: 10px 0 5px;
+    font-size: 18px;
+}
+
+.member-card p {
+    color: #555;
+    font-size: 14px;
+    margin: 6px 10px;
+    line-height: 1.4;
+}
+
+.member-card a {
+    display: inline-block;
+    margin: 5px auto;
+    color: #0ef;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.member-card a:hover {
+    color: cyan;
+    text-shadow: 0 0 10px cyan;
+}
+
+/* Responsif untuk member page */
+@media (max-width: 768px) {
+    .content h2 {
+        font-size: 22px;
+    }
+    .member-list {
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+    }
+    .member-card img {
+        height: 180px;
+    }
+}
+
+@media (max-width: 480px) {
+    .member-list {
+        grid-template-columns: 1fr;
+    }
+    .member-card img {
+        height: 160px;
+    }
+}
+
+/* === CARD (ANGGOTA, MEMBER, STORY) === */
+.anggota-grid,
+.member-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+  padding: 0 20px;
+}
+
+.anggota-card,
+.member-card {
+  background: white;
+  border-radius: 15px;
+  text-align: center;
+  padding: 15px;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.anggota-card:hover,
+.member-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0,255,255,0.3);
+}
+
+.anggota-card img,
+.member-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 12px;
+  border-bottom: 3px solid cyan;
+  filter: brightness(0.95) contrast(1.1);
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.anggota-card img:hover,
+.member-card img:hover {
+  transform: scale(1.05);
+  filter: brightness(1.1) contrast(1.2) saturate(1.1);
+}
+
+.anggota-card h3,
+.member-card h3 {
+  margin-top: 10px;
+  font-size: 18px;
+  color: #0f172a;
+}
+
+.anggota-card p,
+.member-card p {
+  color: #555;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+/* === GALERI === */
+.galeri {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  justify-items: center;
+}
+
+.galeri img,
+.galeri video {
+  width: 100%;
+  border-radius: 14px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+  transition: transform 0.4s ease, box-shadow 0.3s ease;
+}
+
+.galeri img:hover,
+.galeri video:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(0,255,255,0.3);
+}
+
+/* === STORY === */
+.story-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 30px;
+  padding: 60px 8%;
+}
+
+.story-card {
+  background: white;
+  max-width: 700px;
+  width: 100%;
+  border-radius: 16px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+  overflow: hidden;
+  transition: 0.3s;
+  animation: fadeUp 0.8s ease forwards;
+}
+.story-card img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  filter: brightness(0.95) contrast(1.1);
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+.story-card img:hover {
+  transform: scale(1.05);
+  filter: brightness(1.1) contrast(1.2) saturate(1.1);
+} 
+.story-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,255,255,0.3);
+}
+
+/* === DARK MODE (FUTURISTIK & LEMBUT) === */
+html.dark-mode, body.dark-mode {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #0a0f1f, #111827);
+  background-attachment: fixed;
+  background-size: cover;
+  color: #e0f2fe;
+}
+
+/* Header & Nav */
+body.dark-mode header {
+  background: linear-gradient(90deg, #0f172a, #1e293b);
+  box-shadow: 0 0 25px rgba(0,255,255,0.15);
+  border-bottom: 1px solid rgba(0,255,255,0.3);
+}
+
+body.dark-mode nav a {
+  color: #67e8f9;
+}
+
+body.dark-mode nav a:hover {
+  color: #e0f2fe;
+  text-shadow: 0 0 6px rgba(0,255,255,0.5);
+}
+
+/* Logo Title Glow */
+body.dark-mode .logo-container h1 {
+  background: linear-gradient(90deg, #00e0ff, #80ffea);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Card Style */
+body.dark-mode .anggota-card,
+body.dark-mode .member-card,
+body.dark-mode .story-card {
+  background: linear-gradient(145deg, #1e293b, #0f172a);
+  color: #e2e8f0;
+  border: 1px solid rgba(0,255,255,0.1);
+  box-shadow: 0 6px 18px rgba(0,255,255,0.15);
+}
+
+body.dark-mode .anggota-card:hover,
+body.dark-mode .member-card:hover,
+body.dark-mode .story-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,255,255,0.3);
+}
+
+/* Text di Card */
+body.dark-mode .anggota-card h3,
+body.dark-mode .member-card h3,
+body.dark-mode .story-text h3 {
+  color: #38bdf8;
+}
+
+body.dark-mode .anggota-card p,
+body.dark-mode .member-card p,
+body.dark-mode .story-text p {
+  color: #94a3b8;
+}
+
+/* Content Title */
+body.dark-mode .content h2 {
+  color: #e0f2fe;
+}
+
+/* Footer */
+body.dark-mode footer {
+  background: linear-gradient(180deg, #0a0f1f, #1e293b);
+  color: #b3ecff;
+  box-shadow: 0 -3px 12px rgba(0,255,255,0.2);
+}
+
+body.dark-mode footer p:hover {
+  color: cyan;
+  text-shadow: 0 0 8px rgba(0,255,255,0.6);
+}
+
+/* Tombol Dark Mode */
+body.dark-mode .toggle-theme {
+  color: #67e8f9;
+  text-shadow: 0 0 10px rgba(0,255,255,0.4);
+}
+
+/* === FOOTER === */
+footer {
+  background: linear-gradient(180deg, #0f172a, #0b1b2b);
+  color: #e2faff;
+  text-align: center;
+  padding: 20px 0;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  border-top: 1px solid rgba(0,255,255,0.3);
+  margin: 0;
+  box-shadow: 0 -3px 12px rgba(0,255,255,0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 200%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, cyan, transparent);
+  animation: footerGlow 3s linear infinite;
+}
+
+@keyframes footerGlow {
+  0% { left: -50%; }
+  100% { left: 50%; }
+}
+
+footer p {
+  margin: 0;
+  transition: 0.3s;
+}
+
+footer p:hover {
+  color: cyan;
+  text-shadow: 0 0 10px rgba(0,255,255,0.6);
+}
+
+/* === RESPONSIVE DESIGN === */
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .header-container { padding: 15px 30px; }
+  nav { gap: 18px; }
+  .hero .overlay { font-size: 15px; padding: 16px 20px; }
+  .content { padding: 40px 6%; }
+  .anggota-grid, .member-grid, .galeri { gap: 18px; }
+}
+
+/* HP */
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    text-align: center;
+    padding: 14px 20px;
+  }
+
+  .logo-container { justify-content: center; margin-bottom: 10px; }
+  nav { justify-content: center; flex-wrap: wrap; gap: 14px; }
+  .hero { height: 80vh; }
+  .content h2 { font-size: 22px; }
+  .anggota-grid, .member-grid {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  }
+  .anggota-card img, .member-card img { height: 180px; }
+}
+
+/* HP Kecil */
+@media (max-width: 480px) {
+  .logo-container h1 { font-size: 18px; }
+  nav a { font-size: 14px; }
+  .hero { height: 70vh; }
+  .content { padding: 30px 5%; }
+  .anggota-card, .member-card { padding: 10px; }
+  footer { font-size: 12px; padding: 15px 0; }
+}
